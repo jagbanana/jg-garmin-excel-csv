@@ -46,13 +46,16 @@ Running the utility on Windows:
 ```bash
 git clone https://github.com/yourusername/garmin-sync.git
 cd garmin-sync
+```
 
 2. Create a virtual environment (optional but recommended):
 
+```
 bashCopypython -m venv venv
 source venv/bin/activate  # Linux/Mac
 # or
 .\venv\Scripts\activate  # Windows
+```
 
 3. Install dependencies:
 
@@ -74,21 +77,25 @@ Set up environment variables:
 
 ### Command Line
 
+```
 python -m src.main sync-cli \
   --start-date 2024-01-01 \
   --end-date 2024-01-15 \
   --email your.email@example.com \
   --password yourpassword \
   --output-dir /path/to/output
+```
 
 ### Docker
 
+```
 docker build -t garmin-sync .
 docker run -v /local/output:/app/output garmin-sync \
   --start-date 2024-01-01 \
   --end-date 2024-01-15 \
   --email your.email@example.com \
   --password yourpassword
+```
 
 ## Development
 
@@ -106,17 +113,23 @@ docker run -v /local/output:/app/output garmin-sync \
 2. Install Python dependencies: pip install -r requirements.txt
 3. Install Node dependencies:
 
+```
 cd frontend
 npm install
+```
 
 4. Start the backend server
 
+```
 python -m src.main
+```
 
 5. Start the Electron app
 
+```
 cd frontend
 npm run dev
+```
 
 ## Contributing
 
