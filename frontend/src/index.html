@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Garmin Sync</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/themes/dark.css">
+  <link rel="stylesheet" href="styles/components/datePicker.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Garmin Data Sync</h1>
+    
+    <div class="form-container">
+      <div class="credentials-section">
+        <h2>Garmin Account</h2>
+        <input type="email" id="email" placeholder="Garmin Email" class="input-field">
+        <input type="password" id="password" placeholder="Password" class="input-field">
+      </div>
+
+      <div class="date-section">
+        <h2>Date Range</h2>
+        <div class="date-pickers">
+          <div class="date-picker" id="startDatePicker"></div>
+          <div class="date-picker" id="endDatePicker"></div>
+        </div>
+      </div>
+
+      <div class="file-section">
+        <h2>Output Location</h2>
+        <div class="file-picker">
+          <input type="text" id="outputPath" class="input-field" readonly>
+          <button id="browseButton" class="secondary-button">Browse</button>
+        </div>
+      </div>
+
+      <button id="syncButton" class="primary-button">Sync Data</button>
+    </div>
+
+    <div id="status" class="status-container"></div>
+  </div>
+
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>

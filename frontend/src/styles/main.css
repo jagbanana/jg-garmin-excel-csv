@@ -1,0 +1,152 @@
+/* Base styles */
+:root {
+    /* Using colors from the style guide */
+    --bg-dark: #1a1a1a;
+    --panel-dark: #2a2a2a;
+    --input-dark: #333333;
+    --border-dark: #444444;
+    --primary-blue: #2563eb;
+    --primary-blue-hover: #1d4ed8;
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --text-muted: #888888;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1em;
+    margin-bottom: 15px;
+  }
+  
+  .form-container {
+    background-color: var(--panel-dark);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .credentials-section,
+  .date-section {
+    margin-bottom: 20px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: var(--input-dark);
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-size: 1em;
+  }
+  
+  .input-field:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+  }
+  
+  .date-pickers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .primary-button {
+    width: 100%;
+    padding: 8px 16px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .primary-button:hover {
+    background-color: var(--primary-blue-hover);
+  }
+  
+  .primary-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .status-container {
+    background-color: var(--panel-dark);
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    min-height: 50px;
+  }
+  
+  /* Progress bar styles */
+  .progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--input-dark);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .progress-bar-fill {
+    height: 100%;
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease;
+  }
+
+  .file-picker {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: stretch; /* Change to stretch to match heights */
+  }
+  
+  .secondary-button {
+    background-color: var(--panel-dark);
+    color: var(--text-primary);
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    padding: 0 16px; /* Remove vertical padding to match input height */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 35px; /* Match input field height */
+    line-height: 35px; /* Center text vertically */
+  }
+  
+  .input-field {
+    height: 35px; /* Explicitly set height */
+    line-height: 35px; /* Center text vertically */
+  }
+  
+  .secondary-button:hover {
+    background-color: var(--input-dark);
+  }

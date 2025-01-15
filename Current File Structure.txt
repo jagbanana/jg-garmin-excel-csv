@@ -1,0 +1,38 @@
+garmin-sync/
+├── backend/                    # Python backend service
+│   ├── Dockerfile             # For Docker users
+│   ├── requirements.txt
+│   ├── src/
+│   │   ├── __init__.py
+│   │   ├── main.py           # Modified to serve HTTP API
+│   │   ├── garmin_client.py  # Existing functionality
+│   │   ├── file_output.py    # Existing functionality
+│   │   └── api/              # New API layer
+│   │       ├── __init__.py
+│   │       ├── server.py     # FastAPI/Flask server
+│   │       └── routes.py     # API endpoint definitions
+│   └── tests/
+│       └── __init__.py
+│
+├── frontend/                   # Electron frontend
+│   ├── package.json
+│   ├── electron.js            # Main Electron process
+│   ├── preload.js            # Preload script for security
+│   ├── src/
+│   │   ├── index.html        # Main window HTML
+│   │   ├── styles/
+│   │   │   ├── main.css
+│   │   │   └── themes/
+│   │   │       └── dark.css  # Using existing style guide
+│   │   ├── js/
+│   │   │   ├── app.js       # Main application logic
+│   │   │   ├── api.js       # Backend API client
+│   │   │   └── components/
+│   │   │       ├── datePicker.js
+│   │   │       └── progressBar.js
+│   │   │       └── datePicker.css
+│   │   └── assets/          # Icons, images, etc.
+│   └── build/               # Build output directory
+│
+├── README.md
+└── package.json            # Root package for development scripts

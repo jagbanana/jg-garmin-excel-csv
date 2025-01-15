@@ -1,0 +1,16 @@
+{
+    "name": "garmin-sync",
+    "version": "1.0.0",
+    "scripts": {
+        "start-frontend": "cd frontend && node_modules\\.bin\\electron .",
+        "start-backend": "cd backend && cross-env RUN_API=true python -m src.main",
+        "dev": "concurrently \"npm run start-backend\" \"npm run start-frontend\""
+      },
+    "devDependencies": {
+        "concurrently": "^8.2.0",
+        "cross-env": "^7.0.3"
+    },
+    "dependencies": {
+        "axios": "^1.7.9"
+    }
+}
