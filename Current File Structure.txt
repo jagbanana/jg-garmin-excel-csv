@@ -1,7 +1,5 @@
 garmin-sync/
 ├── backend/                    # Python backend service
-│   ├── Dockerfile             # For Docker users
-│   ├── requirements.txt
 │   ├── src/
 │   │   ├── __init__.py
 │   │   ├── main.py           # Modified to serve HTTP API
@@ -35,4 +33,6 @@ garmin-sync/
 │   └── build/               # Build output directory
 │
 ├── README.md
-└── package.json            # Root package for development scripts
+├── package.json            # Root package for development scripts
+├── Dockerfile             # For Docker users
+└── requirements.txt

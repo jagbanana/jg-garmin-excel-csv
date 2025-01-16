@@ -24,5 +24,8 @@
         "win": {
             "target": "nsis"
         }
-    }
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
 }

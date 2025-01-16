@@ -5,7 +5,7 @@ from typing import List
 from datetime import date
 import csv
 import logging
-from .garmin_client import GarminMetrics
+from garmin_client import GarminMetrics
 
 logger = logging.getLogger(__name__)
 

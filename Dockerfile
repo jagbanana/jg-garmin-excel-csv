@@ -10,15 +10,15 @@ COPY requirements.txt .
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy source code - modified to copy backend/src directly to /app/src
-COPY backend/src/ /app/src/
+# Copy the source code
+COPY backend/src /app/src
 
-# Set environment variable for API mode
-ENV RUN_API=true
+# Set environment variables
 ENV PYTHONPATH=/app
+ENV RUN_API=true
 
 # Expose port for API
 EXPOSE 8000
 
-# Run the application - modified path
-CMD ["python", "-m", "src.main"]
+# Run the application
+CMD ["python", "src/main.py"]

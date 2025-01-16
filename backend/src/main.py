@@ -9,7 +9,7 @@ from pathlib import Path
 
 from garmin_client import GarminClient
 from file_output import FileOutput
-from api.server import app
+from src.api.server import app
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -95,9 +95,9 @@ def main():
         # Run the FastAPI server
         uvicorn.run(
             "src.api.server:app",
-            host="127.0.0.1",
+            host="0.0.0.0",
             port=8000,
-            reload=True  # Enable auto-reload during development
+            reload=False
         )
     else:
         # Run the CLI

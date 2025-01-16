@@ -20,5 +20,5 @@ app.add_middleware(
 )
 
 # Import routes after app creation to avoid circular imports
-from .routes import router
+from src.api.routes import router
 app.include_router(router)
