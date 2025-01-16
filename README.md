@@ -51,7 +51,7 @@ cd garmin-sync
 2. Create a virtual environment (optional but recommended):
 
 ```
-bashCopypython -m venv venv
+python -m venv venv
 source venv/bin/activate  # Linux/Mac
 # or
 .\venv\Scripts\activate  # Windows
@@ -59,12 +59,13 @@ source venv/bin/activate  # Linux/Mac
 
 3. Install dependencies:
 ```
-bashCopypip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 4. Set up environment variables:
 
-```bashCopycp .env.example .env
+```
+cp .env.example .env
 ```
 
 # Edit .env with your credentials
