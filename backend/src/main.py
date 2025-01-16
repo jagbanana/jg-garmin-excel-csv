@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 import logging
 from pathlib import Path
 
-from src.garmin_client import GarminClient
-from src.file_output import FileOutput
-from src.api.server import app
+from garmin_client import GarminClient
+from file_output import FileOutput
+from api.server import app
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
