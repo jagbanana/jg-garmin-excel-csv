@@ -68,8 +68,6 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-# Edit .env with your credentials
-
 ## Usage
 ### Desktop Application
 
@@ -79,6 +77,12 @@ cp .env.example .env
 4. Choose output location
 5. Click "Sync Data"
 
+To launch the application with Node.js from the root folder:
+```
+npm run dev
+```
+
+## Alternative Methods
 ### Command Line
 
 ```
