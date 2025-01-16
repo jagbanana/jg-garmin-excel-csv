@@ -43,7 +43,7 @@ Running the utility on Windows:
 ### Command Line / Docker
 
 1. Clone the repository:
-```bash
+```
 git clone https://github.com/yourusername/garmin-sync.git
 cd garmin-sync
 ```
@@ -58,12 +58,15 @@ source venv/bin/activate  # Linux/Mac
 ```
 
 3. Install dependencies:
-
+```
 bashCopypip install -r requirements.txt
+```
 
-Set up environment variables:
+4. Set up environment variables:
 
-4. bashCopycp .env.example .env
+```bashCopycp .env.example .env
+```
+
 # Edit .env with your credentials
 
 ## Usage
@@ -118,16 +121,9 @@ cd frontend
 npm install
 ```
 
-4. Start the backend server
+4. Start the backend server and frontend Electron app
 
 ```
-python -m src.main
-```
-
-5. Start the Electron app
-
-```
-cd frontend
 npm run dev
 ```
 
