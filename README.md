@@ -34,13 +34,7 @@ Running the utility on Windows:
 
 ## Installation
 
-### Desktop Application
-
-1. Download the latest release for your platform
-2. Install the application
-3. Launch and enter your Garmin credentials
-
-### Command Line / Docker
+## Installation
 
 1. Clone the repository:
 ```
@@ -48,72 +42,59 @@ git clone https://github.com/yourusername/garmin-sync.git
 cd garmin-sync
 ```
 
-2. Create a virtual environment (optional but recommended):
-
+2. Install Python dependencies:
 ```
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 # or
 .\venv\Scripts\activate  # Windows
-```
-
-3. Install dependencies:
-```
 pip install -r requirements.txt
 ```
 
-4. Set up environment variables:
+3. Install Node.js dependencies:
+```
+npm install
+```
 
-```
-cp .env.example .env
-```
 
 ## Usage
-### Desktop Application
+### Recommended Method
 
-1. Launch the application
-2. Enter your Garmin Connect credentials
-3. Select date range
-4. Choose output location
-5. Click "Sync Data"
-
-To launch the application with Node.js from the root folder:
+Run both the backend and frontend with a single command:
 ```
 npm run dev
 ```
-
-## Alternative Methods
-### Command Line
+## Project Structure
 
 ```
-python -m src.main sync-cli \
-  --start-date 2024-01-01 \
-  --end-date 2024-01-15 \
-  --email your.email@example.com \
-  --password yourpassword \
-  --output-dir /path/to/output
-```
-
-### Docker
-
-```
-docker build -t garmin-sync .
-docker run -v /local/output:/app/output garmin-sync \
-  --start-date 2024-01-01 \
-  --end-date 2024-01-15 \
-  --email your.email@example.com \
-  --password yourpassword
+JG-GARMIN-EXCEL-CSV/
+├── backend/         # Python FastAPI backend
+│   ├── src/
+│   │   ├── api/
+├── frontend/        # Electron-based frontend
+│   ├── src/
+│   │   ├── assets/  # Icons and images
+│   │   ├── js/      # Frontend JavaScript
+│   │   └── styles/  # CSS files
+├── logs/            # Application logs
+└── screenshots/     # Documentation images
 ```
 
 ## Development
 
-### Prerequisites
+### Tech Stack
 
-- Python 3.9+
-- Node.js 16+
-- Electron
-- FastAPI
-- Docker (optional)
+- Backend:
+  - Python 3.9+
+  - FastAPI
+  - garminconnect
+- Frontend:
+  - Electron
+  - HTML/CSS/JavaScript
+  - Custom date picker and UI components
+- Build Tools:
+  - electron-builder
+  - PyInstaller
 
 ### Setup Development Environment
 

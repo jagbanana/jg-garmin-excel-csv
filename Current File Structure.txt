@@ -31,8 +31,6 @@ JG-GARMIN-EXCEL-CSV/
 │   │   │   └── main.css
 │   │   └── index.html
 │   ├── electron.js
-│   ├── package-lock.json
-│   ├── package.json
 │   └── preload.js
 ├── logs/
 ├── node_modules/
