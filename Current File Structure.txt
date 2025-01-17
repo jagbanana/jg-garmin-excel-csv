@@ -14,9 +14,11 @@ garmin-sync/
 │
 ├── frontend/                   # Electron frontend
 │   ├── package.json
-│   ├── electron.js            # Main Electron process
+│   ├── electron.js
+│   ├── preload.js
 │   ├── preload.js            # Preload script for security
 │   ├── src/
+│   │   ├── electron.js            # Main Electron process
 │   │   ├── index.html        # Main window HTML
 │   │   ├── styles/
 │   │   │   ├── main.css
@@ -35,8 +37,6 @@ garmin-sync/
 ├── Dockerfile             # For Docker users
 ├── build.py
 ├── launcher.js
-├── electron.js
-├── preload.js
 ├── package.json
 ├── requirements.txt
 └── README.md
