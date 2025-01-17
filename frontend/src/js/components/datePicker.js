@@ -10,35 +10,36 @@ export class DatePicker {
     }
   
     render() {
+      console.log('DatePicker render called');  // Add this line
       this.container.innerHTML = `
-        <div class="date-picker-container">
-          <label class="date-label">${this.label}</label>
-          <input 
-            type="text" 
-            class="input-field date-input" 
-            readonly 
-            value="${this.formatDate(this.date)}"
-          >
-          <div class="calendar-popup" style="display: none;">
-            <div class="calendar-header">
-              <button class="calendar-nav prev-month">&lt;</button>
-              <span class="current-month"></span>
-              <button class="calendar-nav next-month">&gt;</button>
-            </div>
-            <div class="calendar-grid">
-              <div class="calendar-days">
-                <span>Mo</span>
-                <span>Tu</span>
-                <span>We</span>
-                <span>Th</span>
-                <span>Fr</span>
-                <span>Sa</span>
-                <span>Su</span>
+          <div class="date-picker-container">
+            <label class="date-label">${this.label}</label>
+            <input 
+              type="text" 
+              class="input-field date-input" 
+              readonly 
+              value="${this.formatDate(this.date)}"
+            >
+            <div class="calendar-popup" style="display: none;">
+              <div class="calendar-header">
+                <button class="calendar-nav prev-month">&lt;</button>
+                <span class="current-month"></span>
+                <button class="calendar-nav next-month">&gt;</button>
               </div>
-              <div class="calendar-dates"></div>
+              <div class="calendar-grid">
+                <div class="calendar-days">
+                  <span>Mo</span>
+                  <span>Tu</span>
+                  <span>We</span>
+                  <span>Th</span>
+                  <span>Fr</span>
+                  <span>Sa</span>
+                  <span>Su</span>
+                </div>
+                <div class="calendar-dates"></div>
+              </div>
             </div>
           </div>
-        </div>
       `;
   
       this.input = this.container.querySelector('.date-input');
@@ -99,6 +100,15 @@ export class DatePicker {
       const cell = document.createElement('div');
       cell.classList.add('calendar-date');
       cell.textContent = content;
+      
+      // Add today class if this is today's date
+      if (content && 
+          this.date.getFullYear() === new Date().getFullYear() &&
+          this.date.getMonth() === new Date().getMonth() &&
+          content === new Date().getDate()) {
+          cell.classList.add('today');
+      }
+      
       return cell;
     }
   

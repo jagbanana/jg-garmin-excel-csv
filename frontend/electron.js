@@ -8,7 +8,7 @@ const store = new Store();
 function createWindow() {
   const win = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 800,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
