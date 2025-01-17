@@ -1,16 +1,53 @@
 {
-    "name": "garmin-sync",
+    "name": "garmin-sync-desktop",
     "version": "1.0.0",
+    "description": "Desktop application for Garmin data sync",
+    "main": "electron.js",
     "scripts": {
+        "start": "electron .",
         "start-frontend": "cd frontend && node_modules\\.bin\\electron .",
         "start-backend": "cd backend && cross-env RUN_API=true python -m src.main",
-        "dev": "concurrently \"npm run start-backend\" \"npm run start-frontend\""
-      },
-    "devDependencies": {
-        "concurrently": "^8.2.0",
-        "cross-env": "^7.0.3"
+        "dev": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
+        "build": "electron-builder",
+        "build-all": "python build.py && npm run build"
+    },
+    "build": {
+        "appId": "com.garmin.sync",
+        "productName": "Garmin Sync",
+        "files": [
+            "**/*",
+            "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+            "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+            "!**/node_modules/*.d.ts",
+            "!**/node_modules/.bin",
+            "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+            "!.editorconfig",
+            "!**/._*",
+            "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+            "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+            "!**/{appveyor.yml,.travis.yml,circle.yml}",
+            "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+        ],
+        "extraResources": [
+            {
+                "from": "dist/garmin_sync_backend",
+                "to": "backend"
+            }
+        ],
+        "win": {
+            "target": "nsis",
+            "icon": "assets/icon.ico"
+        }
     },
     "dependencies": {
-        "axios": "^1.7.9"
+        "axios": "^1.7.9",
+        "electron-store": "^8.1.0"
+    },
+    "devDependencies": {
+        "electron": "^28.1.0",
+        "electron-builder": "^24.9.1",
+        "python-shell": "^5.0.0",
+        "concurrently": "^8.2.0",
+        "cross-env": "^7.0.3"
     }
 }

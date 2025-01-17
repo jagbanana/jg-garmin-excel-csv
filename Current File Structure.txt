@@ -32,7 +32,11 @@ garmin-sync/
 │   │   └── assets/          # Icons, images, etc.
 │   └── build/               # Build output directory
 │
-├── README.md
-├── package.json            # Root package for development scripts
 ├── Dockerfile             # For Docker users
-└── requirements.txt
+├── build.py
+├── launcher.js
+├── electron.js
+├── preload.js
+├── package.json
+├── requirements.txt
+└── README.md

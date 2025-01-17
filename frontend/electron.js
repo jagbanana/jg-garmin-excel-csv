@@ -2,10 +2,15 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const Store = require('electron-store');
 const axios = require('axios');
+const BackendLauncher = require('./launcher');
 
 const store = new Store();
+const backend = new BackendLauncher();
 
 function createWindow() {
+  // Start the backend server
+  backend.start();
+
   const win = new BrowserWindow({
     width: 800,
     height: 800,
@@ -23,19 +28,30 @@ function createWindow() {
   if (process.argv.includes('--debug')) {
     win.webContents.openDevTools();
   }
+
+  return win;
 }
 
-app.whenReady().then(createWindow);
+// Handle app startup
+app.whenReady().then(() => {
+  createWindow();
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
+});
+
+// Handle app shutdown
+app.on('before-quit', () => {
+  backend.stop();
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
+    backend.stop();
     app.quit();
-  }
-});
-
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
   }
 });
 
@@ -74,7 +90,7 @@ ipcMain.handle('sync-data', async (event, data) => {
       password: data.password,
       start_date: data.startDate.split('T')[0], // Ensure date format is YYYY-MM-DD
       end_date: data.endDate.split('T')[0],
-      output_dir: app.getPath('documents')
+      output_dir: data.outputDir || app.getPath('documents')
     });
     return response.data;
   } catch (error) {
@@ -91,7 +107,20 @@ ipcMain.handle('sync-data', async (event, data) => {
         : 'Invalid data format';
       throw new Error(errorMessage);
     }
+
+    // Add more specific error handling
+    if (error.response?.status === 401) {
+      throw new Error('Invalid Garmin credentials. Please check your email and password.');
+    }
     
-    throw new Error(error.response?.data?.detail || error.message);
+    if (error.response?.status === 403) {
+      throw new Error('Access denied. Please check your Garmin account permissions.');
+    }
+    
+    if (error.response?.status === 429) {
+      throw new Error('Too many requests. Please wait a few minutes and try again.');
+    }
+    
+    throw new Error(error.response?.data?.detail || 'An unexpected error occurred. Please try again.');
   }
 });
