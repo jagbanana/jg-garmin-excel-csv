@@ -2,13 +2,12 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const Store = require('electron-store');
 const axios = require('axios');
-const BackendLauncher = require('./launcher');
+const BackendLauncher = require('../launcher');  
 
 const store = new Store();
 const backend = new BackendLauncher();
 
 function createWindow() {
-  // Start the backend server
   backend.start();
 
   const win = new BrowserWindow({
