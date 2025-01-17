@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['F:\\OneDrive\\Documents\\jaglab\\JGGarminSync\\jg-garmin-excel-csv\\backend\\src\\main.py'],
+    ['C:\\Users\\jagesso\\OneDrive\\Documents\\jaglab\\JGGarminSync\\jg-garmin-excel-csv\\backend\\src\\main.py'],
     pathex=[],
     binaries=[],
     datas=[('backend/src', 'src')],

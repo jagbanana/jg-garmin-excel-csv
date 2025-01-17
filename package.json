@@ -7,12 +7,9 @@
         "name": "Your Name"
     },
     "scripts": {
-        "start": "electron .",
-        "start-frontend": "cd frontend && node_modules\\.bin\\electron .",
         "start-backend": "cd backend && cross-env RUN_API=true python -m src.main",
-        "dev": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
-        "build": "npx electron-builder",
-        "build-all": "python build.py && npm run build"
+        "start-frontend": "cd frontend && electron .",
+        "dev": "concurrently \"npm run start-backend\" \"npm run start-frontend\""
     },
     "build": {
         "appId": "com.garmin.sync",

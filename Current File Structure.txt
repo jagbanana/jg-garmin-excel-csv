@@ -1,42 +1,51 @@
-garmin-sync/
-├── backend/                    # Python backend service
+JG-GARMIN-EXCEL-CSV/
+├── backend/
 │   ├── src/
+│   │   ├── _pycache_/
+│   │   ├── api/
+│   │   │   ├── _pycache_/
+│   │   │   ├── __init__.py
+│   │   │   ├── routes.py
+│   │   │   └── server.py
 │   │   ├── __init__.py
-│   │   ├── main.py           # Modified to serve HTTP API
-│   │   ├── garmin_client.py  # Existing functionality
-│   │   ├── file_output.py    # Existing functionality
-│   │   └── api/              # New API layer
-│   │       ├── __init__.py
-│   │       ├── server.py     # FastAPI/Flask server
-│   │       └── routes.py     # API endpoint definitions
-│   └── tests/
-│       └── __init__.py
-│
-├── frontend/                   # Electron frontend
-│   ├── package.json
-│   ├── electron.js
-│   ├── preload.js
-│   ├── preload.js            # Preload script for security
+│   │   ├── file_output.py
+│   │   ├── garmin_client.py
+│   │   └── main.py
+│   ├── tests/
+│   ├── build/
+│   ├── dist/
+│   └── __init__.py
+├── frontend/
+│   ├── node_modules/
 │   ├── src/
-│   │   ├── electron.js            # Main Electron process
-│   │   ├── index.html        # Main window HTML
-│   │   ├── styles/
-│   │   │   ├── main.css
-│   │   │   └── themes/
-│   │   │       └── dark.css  # Using existing style guide
+│   │   ├── assets/
+│   │   │   └── icon.ico
 │   │   ├── js/
-│   │   │   ├── app.js       # Main application logic
-│   │   │   ├── api.js       # Backend API client
-│   │   │   └── components/
-│   │   │       ├── datePicker.js
-│   │   │       └── progressBar.js
-│   │   │       └── datePicker.css
-│   │   └── assets/          # Icons, images, etc.
-│   └── build/               # Build output directory
-│
-├── Dockerfile             # For Docker users
+│   │   │   ├── components/
+│   │   │   │   ├── datePicker.css
+│   │   │   │   ├── datePicker.js
+│   │   │   │   └── progressBar.js
+│   │   │   ├── api.js
+│   │   │   └── app.js
+│   │   ├── styles/
+│   │   │   └── main.css
+│   │   └── index.html
+│   ├── electron.js
+│   ├── package-lock.json
+│   ├── package.json
+│   └── preload.js
+├── logs/
+├── node_modules/
+├── screenshots/
+├── .gitattributes
+├── .gitignore
 ├── build.py
+├── Current File Structure.txt
+├── Dockerfile
+├── garmin_sync_backend.spec
 ├── launcher.js
+├── LICENSE
+├── package-lock.json
 ├── package.json
-├── requirements.txt
-└── README.md
+├── README.md
+└── requirements.txt

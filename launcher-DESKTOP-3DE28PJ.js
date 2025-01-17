@@ -10,12 +10,13 @@ class BackendLauncher {
     start() {
         if (process.env.NODE_ENV === 'development') {
             console.log('Starting backend in development mode...');
+            // Use -m to ensure proper Python module resolution
             this.backend = spawn('python', ['-m', 'src.main'], {
-                env: { ...process.env, RUN_API: 'true' },
+                env: { ...process.env, RUN_API: 'true', PYTHONPATH: './backend' },
                 cwd: path.join(process.cwd(), 'backend')
             });
         } else {
-            // Production mode
+            // Production mode remains the same
             this.backend = spawn(
                 path.join(process.resourcesPath, 'backend', 'garmin_sync_backend.exe'),
                 [],
