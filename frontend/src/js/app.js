@@ -88,7 +88,7 @@ class App {
   
       console.log('Sending data:', data);
       const result = await window.api.syncData(data);
-      this.updateStatus('Data synced successfully!', 'success');
+      this.updateStatus('Data downloaded successfully!', 'success');
       
     } catch (error) {
       console.error('Sync error:', error);
@@ -122,7 +122,7 @@ class App {
 
   setLoading(isLoading) {
     this.syncButton.disabled = isLoading;
-    this.syncButton.textContent = isLoading ? 'Syncing...' : 'Sync Data';
+    this.syncButton.textContent = isLoading ? 'Downloading...' : 'Download Garmin Data';
     if (isLoading) {
       this.progressBar.show();
     } else {
