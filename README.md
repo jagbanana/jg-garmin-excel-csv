@@ -5,15 +5,21 @@ A tool for downloading health metrics from Garmin Connect to CSV/Excel files, wi
 ## Screenshots
 
 Running the utility on Windows:
+
 ![Running the utility in PowerShell](screenshots/screenshot1.png)
+
 *Simple utility to download daily data from Garmin and store it in an Excel sheet (XLSX) or CSV.*
 
 Windows installer:
+
 ![Running the utility in PowerShell](screenshots/screenshot2.png)
+
 *JG Garmin to Excel Windows installer.*
 
 Garmin data output in Excel sample:
+
 ![Running the utility in PowerShell](screenshots/screenshot3.png)
+
 *Garmin data output example.*
 
 ## Features
