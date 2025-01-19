@@ -1,36 +1,50 @@
 {
-    "name": "garmin-sync-desktop",
-    "version": "1.0.0",
-    "description": "Desktop application for Garmin data sync",
+    "name": "jg-garmin-to-excel",
+    "version": "1.0.1",
+    "description": "Desktop application to download Garmin data to Excel",
     "main": "frontend/electron.js",
     "author": {
-        "name": "Your Name"
+        "name": "jaglab"
     },
     "scripts": {
         "start-backend": "cd backend && cross-env RUN_API=true python -m src.main",
         "start-frontend": "electron frontend/electron.js",
+        "build": "electron-builder build --win",
+        "build:all": "python build.py && npm run build",
         "dev": "concurrently \"npm run start-backend\" \"npm run start-frontend\""
     },
     "build": {
-        "appId": "com.garmin.sync",
-        "productName": "Garmin Sync",
+        "appId": "com.jg.garminexcel",
+        "productName": "JG Garmin to Excel",
         "files": [
-            "frontend/**/*",
-            "launcher.js",
-            "!frontend/node_modules/**/*"
+          "frontend/**/*",
+          "launcher.js",
+          "!frontend/node_modules/**/*"
         ],
         "directories": {
-            "output": "dist/electron"
+          "output": "dist/electron"
         },
         "extraResources": [
-            {
-                "from": "dist/garmin_sync_backend.exe",
-                "to": "backend/garmin_sync_backend.exe"
-            }
+          {
+            "from": "dist/garmin_sync_backend.exe",
+            "to": "backend/garmin_sync_backend.exe"
+          }
         ],
         "win": {
-            "target": "nsis",
-            "icon": "frontend/src/assets/icon.ico"
+          "target": [
+            {
+              "target": "nsis",
+              "arch": ["x64"]
+            }
+          ],
+          "icon": "frontend/src/assets/icon.ico"
+        },
+        "nsis": {
+          "oneClick": false,
+          "allowToChangeInstallationDirectory": true,
+          "createDesktopShortcut": true,
+          "createStartMenuShortcut": true,
+          "shortcutName": "JG Garmin to Excel"
         }
     },
     "dependencies": {
