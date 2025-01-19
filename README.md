@@ -1,6 +1,6 @@
 # Garmin Data to Excel and CSV Utility
 
-A tool for downloading health metrics from Garmin Connect to CSV/Excel files, with both desktop and command-line interfaces.
+A tool for downloading health metrics from Garmin Connect to CSV/Excel files, with both desktop and command-line interfaces. Includes a Windows installer release.
 
 ## Screenshots
 
@@ -42,7 +42,14 @@ Garmin data output in Excel sample:
 
 ## Installation
 
-## Installation
+### Windows Installer
+
+1. Download the Windows installer from the Releases https://github.com/jagbanana/jg-garmin-excel-csv/releases
+2. Run the installer.
+
+## Dev Environment Creation
+
+## Environment Setup
 
 1. Clone the repository:
 ```
@@ -64,9 +71,7 @@ pip install -r requirements.txt
 npm install
 ```
 
-
-## Usage
-### Recommended Method
+### Environment Usage
 
 Run both the backend and frontend with a single command:
 ```
